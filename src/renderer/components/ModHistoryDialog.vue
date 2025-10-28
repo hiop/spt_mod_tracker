@@ -66,9 +66,9 @@ watch(
       max-width="900px"
     >
       <v-card title="Notification">
-        <v-card-text v-if="!store.modHistory.length"
-          >There is nothing here at the moment</v-card-text
-        >
+        <v-card-text v-if="!store.modHistory.length">
+          There is nothing here at the moment
+        </v-card-text>
         <v-card-text v-else>
           <v-banner
             class="cursor-pointer"
@@ -77,7 +77,7 @@ watch(
             :key="history.updated"
             @click="openExternal(history.mod.url as string)"
           >
-            <template v-slot:default>
+            <template #default>
               <div class="d-flex flex-row justify-space-between w-100">
                 <div class="w-50">
                   {{ history.mod.name }}
@@ -117,14 +117,14 @@ watch(
         </v-card-text>
 
         <v-card-actions>
-          <v-spacer></v-spacer>
+          <v-spacer />
 
           <v-btn
             color="error"
             variant="tonal"
             text="CLOSE"
             @click="dialog = false"
-          ></v-btn>
+          />
         </v-card-actions>
       </v-card>
     </v-dialog>

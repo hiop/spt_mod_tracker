@@ -2,8 +2,7 @@ import {
   app,
   BrowserWindow,
   RenderProcessGoneDetails,
-  BrowserWindowConstructorOptions,
-  Notification
+  BrowserWindowConstructorOptions
 } from 'electron'
 import Constants, { TrayOptions } from './utils/Constants'
 import IPCs from './IPCs'
@@ -76,7 +75,7 @@ export const createMainWindow = async (): Promise<BrowserWindow> => {
 
   mainWindow.setMenu(null)
 
-  mainWindow.on('minimize', (event: Event): void => {
+  mainWindow.on('will-resize', (): void => {
     mainWindow.hide()
   })
 

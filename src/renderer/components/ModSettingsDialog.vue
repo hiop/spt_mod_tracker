@@ -62,7 +62,7 @@ const testNotification = () => {
             hide-details
           />
 
-          <h2 class="mt-10">Notification</h2>
+          <h2 class="mt-10"> Notification </h2>
           <v-checkbox
             density="compact"
             v-model="automaticTrackingNotification"
@@ -87,7 +87,7 @@ const testNotification = () => {
             v-model="automaticTrackingEnable"
             label="Enable tracking"
             hide-details
-          ></v-checkbox>
+          />
 
           <v-slider
             density="compact"
@@ -99,7 +99,7 @@ const testNotification = () => {
             show-ticks="always"
             tick-size="5"
             step="30"
-          ></v-slider>
+          />
 
           <v-alert
             type="warning"

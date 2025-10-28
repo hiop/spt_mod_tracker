@@ -445,8 +445,9 @@ function errorToJSON(error: unknown): string {
                         color="error"
                         variant="tonal"
                         @click="logout"
-                        >Logout</v-btn
                       >
+                        Logout
+                      </v-btn>
                     </v-list-item>
                   </v-list>
                 </v-menu>
@@ -488,8 +489,9 @@ function errorToJSON(error: unknown): string {
                 color="success"
                 variant="tonal"
                 @click="updateLoadedMods(modIdList)"
-                ><span class="font-weight-bold">⟳</span></v-btn
               >
+                <span class="font-weight-bold">⟳</span>
+              </v-btn>
 
               <v-btn
                 :disabled="store.automaticTrackingIntervalId != null"
@@ -499,8 +501,9 @@ function errorToJSON(error: unknown): string {
                 color="warning"
                 variant="tonal"
                 @click="forceUpdateOutdatedMods"
-                ><span class="font-weight-bold">⟳</span></v-btn
               >
+                <span class="font-weight-bold">⟳</span>
+              </v-btn>
 
               <v-text-field
                 v-model="modUrlForAdd"
@@ -534,15 +537,15 @@ function errorToJSON(error: unknown): string {
                   class="mr-2"
                   variant="outlined"
                   density="compact"
-                  label='API KEY with  "read" permission'
+                  label="API KEY with 'read' permission"
                 >
-                  <template #details
-                    ><a
+                  <template #details>
+                    <a
                       href="#"
                       @click="openSptForgeForApiKey"
                       >get api key from spt-forge</a
-                    ></template
-                  >
+                    >
+                  </template>
                 </v-text-field>
                 <v-btn
                   v-if="!store.token"
@@ -573,8 +576,8 @@ function errorToJSON(error: unknown): string {
           color="surface-variant"
           variant="tonal"
         >
-          <v-card-title
-            >Export / Import
+          <v-card-title>
+            Export / Import
             <v-btn
               class="ml-2"
               color="error"
@@ -582,8 +585,8 @@ function errorToJSON(error: unknown): string {
               @click="showImportExport = false"
             >
               Close
-            </v-btn></v-card-title
-          >
+            </v-btn>
+          </v-card-title>
           <v-textarea
             variant="outlined"
             v-model="importExportString"
@@ -677,7 +680,7 @@ function errorToJSON(error: unknown): string {
         <v-textarea
           auto-grow
           v-model="error"
-        ></v-textarea>
+        />
       </v-alert>
     </div>
     <ModSettingsDialog v-model:dialog="showSettings" />
