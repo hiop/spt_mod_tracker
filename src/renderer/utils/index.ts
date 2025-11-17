@@ -1,7 +1,3 @@
-export function getCurrentLocale(): string {
-  return navigator?.language?.split('-')[0] || 'en'
-}
-
 export async function openExternal(url: string): Promise<void> {
   await window.mainApi.send('msgOpenExternalLink', url)
 }

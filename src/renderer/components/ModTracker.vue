@@ -6,8 +6,9 @@ import { SptMod, SptModHistory, useMainStore } from '@/renderer/store/main'
 import { openExternal, sendNotification } from '@/renderer/utils'
 import ModHistoryDialog from '@/renderer/components/ModHistoryDialog.vue'
 import ModSettingsDialog from '@/renderer/components/ModSettingsDialog.vue'
+import { checkVersion } from '@/renderer/utils/version'
 
-const defaultSptVersion = '~4.0.1'
+const defaultSptVersion = '4.0.4'
 const store = useMainStore()
 const modIdList = ref<string[]>([])
 const modUrlForAdd = ref<string>('')
@@ -141,22 +142,28 @@ const getColorByVersionDiff = (
   try {
     if (!modVersion) return 'info'
 
-    const [major1, minor1, patch1] = currentVersionSpt.value
+    const result = checkVersion(
+      modVersion,
+      currentVersionSpt.value?.replace(/[^\d.]/g, '')
+    )
+      ? 'success'
+      : 'error'
+
+    if (result !== 'error') {
+      return result
+    }
+
+    const [major1] = currentVersionSpt.value
       .replace(/[^\d.]/g, '')
       .split('.')
       .map(Number)
 
-    const [major2, minor2, patch2] = modVersion
+    const [major2] = modVersion
       .replace(/[^\d.]/g, '')
       .split('.')
       .map(Number)
 
-    if (major1 === major2 && minor1 === minor2 && patch1 === patch2)
-      return 'success'
-    if (major1 === major2 && minor1 === minor2) return 'success'
     if (major1 === major2) return 'warning'
-
-    return 'error'
   } catch (e) {
     console.warn('Error from version diff', e)
   }

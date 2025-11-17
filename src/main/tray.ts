@@ -29,6 +29,12 @@ export function createTray(window: BrowserWindow, options) {
         }
       },
       {
+        label: 'Show DevTools',
+        click: () => {
+          initDevtools(window)
+        }
+      },
+      {
         label: 'Exit',
         click: () => {
           app.quit()
@@ -64,6 +70,10 @@ export function hideWindow(window: BrowserWindow) {
       window.hide()
     }
   })
+}
+
+export function initDevtools(window: BrowserWindow) {
+  window.webContents.openDevTools()
 }
 
 export function toggleWindow(window: BrowserWindow) {
